@@ -4,12 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <title>Disappear Text no1</title>
 </head>
 <body>
-    <button class="button" onclick="generate()">Generate Random Number</button>
-   
+    <p id="message">first you need to get above 60 commons to level up and over 100 total rolls</p>
+    <button id ="button" oneclick="generate()">generate random aura</button>
+    <p id="result"></p>
+
+    <!--<button class="button" onclick="generate()">Generate Random aura</button>
+-->
+
+    
         <style>
-.button {
+            #message {
+    animation: fadeOut 1s ease 4s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+ #message {
+            font-size: 40px;/*size*/
+        }
+
+#message {/*position of text no1*/
+    position: absolute;
+    top: 70px;/*up+down */
+    left: 150px;/*left+right*/
+}
+        
+button {
     position: absolute;
     top: 770px;   /* distance from top */
     left: 645px;  /* distance from left */
@@ -18,7 +45,27 @@
     font-size: 12px;
 }
 </style>
-<p id="result"></p>
+
+
+
+
+<script src="script.js"></script>
+
+<!-- <script>
+const button = document.getElementById("Button");
+
+button.addEventListener("click", function() {
+    
+    button.disabled = true; // Disable button
+    
+    console.log("Clicked!");
+    
+    setTimeout(function() {
+        button.disabled = false; // Enable after 5 seconds
+    }, 5000);
+});
+</script>
+-->
 
     <script src="script.js"></script>
 <!--
@@ -36,6 +83,16 @@ function generate() {
 }
 </script>
 -->
+
+<!--
+<script>
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 5000); // 5000 milliseconds = 5 seconds
+</script>
+-->
+
+
 
 
 </body>

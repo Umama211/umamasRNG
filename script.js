@@ -1,3 +1,24 @@
+    setTimeout(function() {
+        document.getElementById("message").style.display = "none";
+    }, 7500); // 5000 milliseconds = 5 seconds
+
+const button = document.getElementById("button");
+const result = document.getElementById("result");
+
+button.addEventListener("click", function() {
+    
+    button.disabled = true; // start cooldown
+    
+    generate();
+
+    const randomNumber = Math.floor(Math.random() * 100000) + 1;
+    
+    
+    setTimeout(function() {
+        button.disabled = false; // end cooldown after 5s
+    }, 750);
+});
+
     commoncounter = 0;
     uncommoncounter = 0;
     rarecounter = 0;
@@ -7,8 +28,11 @@
     exoticcounter = 0;
     ultracounter = 0;
     megaultracounter = 0;
+    rollscounter = 0;
+    playerlevel = 1;
     function generate() {
         let randomNumber = Math.floor(Math.random() * 100000) + 1;
+        rollscounter++;
     if(randomNumber>=1 && randomNumber<=50000){
         commoncounter++;
         document.getElementById("result").innerText = "common" + "\n"; 
@@ -45,6 +69,9 @@
     megaultracounter++;
     document.getElementById("result").innerText = "mega ultra"+"\n";
    }
+   if(rollscounter >=100 && rollscounter < 1000 && commoncounter >= 60){
+    playerlevel = 2;
+   }
    document.getElementById("result").innerText += "common: " + commoncounter+"\n"
    +"uncommon: " + uncommoncounter+"\n"
    +"rare: " + rarecounter+"\n"
@@ -53,5 +80,8 @@
    +"legendery: " + legenderycounter+"\n"
    +"exotic: " + exoticcounter+"\n"
    +"ultra: " + ultracounter+"\n"
-   +"mega ultra" + megaultracounter+"\n";
+   +"mega ultra: " + megaultracounter+"\n"
+   +"total rolls: " + rollscounter+"\n"
+   +"level: " + playerlevel+"\n";
+   
 }
