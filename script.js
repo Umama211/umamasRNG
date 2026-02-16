@@ -18,24 +18,39 @@ button.addEventListener("click", function() {
         button.disabled = false; // end cooldown after 5s
     }, 750);
 });
+    let rollscounter = 0;
+    let playerlevel = 1;
+    let coinscounter = 0;
 
-    commoncounter = 0;
-    uncommoncounter = 0;
-    rarecounter = 0;
-    epiccounter = 0;
-    mythiccounter = 0;
-    legenderycounter = 0;
-    exoticcounter = 0;
-    ultracounter = 0;
-    megaultracounter = 0;
-    rollscounter = 0;
-    playerlevel = 1;
+    let counters = {
+    common: 0,
+    uncommon: 0,
+    rare: 0,
+    epic: 0,
+    mythic: 0,
+    legendary: 0,
+    exotic: 0,
+    ultra: 0,
+    megaUltra: 0
+};
+
+    const sellprices = {
+        common: 1,
+        uncommon: 3,
+        rare: 6,
+        epic: 13,
+        mythic: 27,
+        legendery: 55,
+        exotic: 102,
+        ultra: 216,
+        megaultra: 440
+    };
     function generate() {
         let randomNumber = Math.floor(Math.random() * 100000) + 1;
         rollscounter++;
     if(randomNumber>=1 && randomNumber<=50000){
         commoncounter++;
-        document.getElementById("result").innerText = "common" + "\n"; 
+        document.getElementById("result").innerText = "common" + "\n";
     }
    if(randomNumber>50000 && randomNumber<=75000){
     uncommoncounter++;
@@ -69,9 +84,13 @@ button.addEventListener("click", function() {
     megaultracounter++;
     document.getElementById("result").innerText = "mega ultra"+"\n";
    }
-   if(rollscounter >=100 && rollscounter < 1000 && commoncounter >= 60){
+   if(rollscounter >=100 && commoncounter >= 60){
     playerlevel = 2;
    }
+   if(rollscounter >= 1000 && legenderycounter > 5 && megaultracounter > 7 && exoticcounter > 20){
+    playerlevel = 3;
+   }
+   /*if(rollscounter>=2500&&)*/  /*to add another buying shit... idk*/
    document.getElementById("result").innerText += "common: " + commoncounter+"\n"
    +"uncommon: " + uncommoncounter+"\n"
    +"rare: " + rarecounter+"\n"

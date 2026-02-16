@@ -1,1 +1,1 @@
-My attempt at making a sols rng inspired html game
+My attempt at making a sols rng inspired html game on my own.
